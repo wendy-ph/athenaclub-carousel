@@ -1,0 +1,45 @@
+<div class="container" data-controller="carousel">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselProducts" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <!--
+  <button class="arrow">
+    <i class="fa-solid fa-angle-left"></i>
+  </button>
+   -->
+
+  <div id="carouselProducts" class="carousel slide">
+    <!--bubble-->
+    <div class="item-container carousel-item d-block active">
+      <div class="bubble">
+        <a class="favorites-link" href="#">
+          <h2 class="title">Meet The Favorites</h2>
+          <p class="link">SHOP ALL</p>
+        </a>
+      </div>
+    </div>
+
+    <!--products-->
+    <% @products.each do |p| %>
+      <a href="">
+        <div class="item-container">
+          <%= image_tag p.imageUrl, class:"product-img carousel-item d-block", alt:"#{p.name} product image", draggable:"false" %>
+          <div class="name"><%= p.name %></div>
+          <div class="desc"><%= p.description %></div>
+          <div class="star"><%= p.rating %></div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+  <!--
+  <button class="arrow">
+    <i class="fa-solid fa-angle-right"></i>
+  </button>
+  -->
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselProducts" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+</div>

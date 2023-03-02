@@ -1,0 +1,17 @@
+.arrow {
+  border: 1px solid $darkblue;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 25px;
+}
+
+.item-container {
+  width: 422px;
+}
+
+.product-img {
+  max-height: 300px;
+}

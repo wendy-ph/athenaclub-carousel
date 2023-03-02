@@ -1,0 +1,36 @@
+.bubble {
+  background: #e9f5fa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  height: 325px;
+  max-width: 325px;
+  margin-top:39px;
+  text-align: center;
+
+  &:hover .link {
+    border-bottom: 0px;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 4.2rem;
+  line-height: 1.04;
+  margin-bottom: .59em;
+}
+
+.link {
+  font-size: 1.3rem;
+  border-bottom: 1px solid;
+  display: inline-block;
+  letter-spacing: 1.75px;
+  padding-bottom: 6px;
+}
+
+
+@media only screen and (max-width: 768px) {
+ .bubble {
+  display: none;
+ }
+}
