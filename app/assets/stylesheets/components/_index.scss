@@ -3,3 +3,32 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+
+
+// default styling
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $darkblue;
+ }
+
+html {
+  font-size: 10px;
+}
+
+li {
+  list-style: none;
+ }
+
+ p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
