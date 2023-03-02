@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "Wiping database..."
+Product.destroy_all
+puts "Done."
+
+path = File.join(File.dirname(__FILE__), "./products.json")
+records = JSON.parse(File.read(path))
+records["products"].each do |r|
+  Product.create!(r)
+  puts "Created #{r["name"]}"
+end
+puts "All products are seeded"

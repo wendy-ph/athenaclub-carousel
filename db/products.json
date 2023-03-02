@@ -1,0 +1,32 @@
+{
+  "products":[
+     {
+        "name": "The Razor Kit",
+        "price": 9,
+        "imageUrl": "https://s3.athenaclub.com/2022/01/3TRbvp60-RazorShopAll_Badges.png",
+        "description": "Your new favourite razor, available in 6 colors. Yes, even black and white.",
+        "rating": 5
+     },
+     {
+        "name": "Cloud Shave Foam",
+        "price": 9,
+        "imageUrl": "https://s3.athenaclub.com/2023/01/EUM9TQuM-CloudShave2-min.png",
+        "description": "Looks like whipped cream, smells like roses. Leaves skin smooth and soothed.",
+        "rating": 4.5
+     },
+     {
+        "name": "All Day Deo",
+        "price": 12,
+        "imageUrl": "https://s3.athenaclub.com/2021/04/mCzXDz4t-Deo-No.1.png",
+        "description": "Our plant-based deo keeps you fresh all day, every day. Available in 3 scents.",
+        "rating": 4
+     },
+     {
+        "name": "Soft Face Wipes",
+        "price": 12,
+        "imageUrl": "https://s3.athenaclub.com/2022/03/wipes-1.png",
+        "description": "Our super soft wipes leave your face clean, nourished, and makeup-free.",
+        "rating": 5
+     }
+  ]
+}
