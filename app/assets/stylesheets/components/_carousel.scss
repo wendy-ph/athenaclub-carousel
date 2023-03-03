@@ -1,17 +1,99 @@
-.arrow {
-  border: 1px solid $darkblue;
-  border-radius: 50%;
+// .arrow {
+//   background-color: #fff;
+//   border: 1px solid $darkblue;
+//   border-radius: 50%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   height: 25px;
+//   width: 25px;
+//   position: absolute;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
+
+// .arrow:first-child {
+//   left: -23px;
+// }
+// .arrow:last-child {
+//   right: -23px;
+// }
+
+// .carousel {
+
+// }
+
+body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 25px;
-  width: 25px;
+  min-height: 100vh;
 }
+
+// .carousel-products {
+//   display: flex;
+//   white-space: nowrap;
+//   overflow: hidden;
+// }
 
 .item-container {
   width: 422px;
+  background-color: #fff;
 }
 
 .product-img {
   max-height: 300px;
+  object-fit: cover;
 }
+
+// .product-img:first-child {
+//   margin-left: 0px;
+// }
+
+// .wrapper {
+//   position: relative;
+//   max-width: 1200px;
+
+
+  // i {
+  //   height: 46px;
+  //   width: 46px;
+  //   text-align: center;
+  //   list-style: none;
+  //   background-color: #fff;
+  //   line-height: 46px;
+  //   border-radius: 50%;
+  //   font-size: 1.2rem;
+  // }
+
+//   i:first-child {
+//     left: -23px;
+//   }
+//   i:last-child {
+//     right: -23px;
+//   }
+// }
+
+
+
+
+
+
+// =============================================
+
+// @media (min-width: 768px) {
+//   .carousel-inner {
+//     display: flex;
+//   }
+//   .carousel-item {
+//     margin-right: 0;
+//     flex: 0 0 33.333333%;
+//     display: block;
+//   }
+// }
+
+// @media screen and (max-width: 768px) {
+//   .product-img {
+//     width: 100%;
+//   }
+// }
