@@ -3,17 +3,10 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = [ 'container' ]
-  // static values = {
-  //   isDragStart: Boolean,
-  //   prevPageX: Number,
-  //   prevScrollLeft: Number
-  //  }
+
   connect() {
     this.initSlider()
     console.log("slider controller is connected");
-    // console.log(this.carouselTarget);
-    // console.log(this.carouselTarget.scrollLeft);
-
   }
 
   initSlider() {
@@ -21,11 +14,27 @@ export default class extends Controller {
       container: this.containerTarget,
       items: 3,
       slibeBy: 1,
-      gutter: 10,
+      gutter: 0,
+      fixedWidth: 422,
       mouseDrag: true,
       arrowKeys: false,
       controls: false,
-      nav: false
+      nav: false,
+      loop: false,
+      responsive: {
+        300: {
+          items: 1,
+          startIndex: 1
+        },
+        770: {
+          items: 2,
+          startIndex: 0
+        },
+        995:{
+          items: 3
+        }
+      },
+      viewportMax: true
     });
   }
 
@@ -36,25 +45,4 @@ export default class extends Controller {
   prev() {
     this.slider.goTo('prev');
   }
-
-
-  // dragStart(e) {
-  //   this.isDragStartValue = true;
-  //   console.log(this.isDragStartValue);
-  //   this.prevPageXValue = e.pageX;
-  //   this.prevScrollLeft = this.carouselTarget.scrollLeft;
-  // }
-
-  // dragStop(e) {
-  //   this.isDragStartValue = false;
-  // }
-
-
-  // dragging(e) {
-  //   if(!this.isDragStartValue) return;
-  //   e.preventDefault();
-  //   let positionDiff = e.pageX - this.prevPageXValue;
-  //   this.carouselTarget.scrollLeft = this.prevScrollLeftValue - positionDiff;
-  // }
-
 }

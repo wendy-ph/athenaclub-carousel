@@ -7,7 +7,7 @@
     <div class="card__container" data-slider-target="container">
         <!--bubble-->
         <div class="item-container card__row">
-          <div class="card">
+          <div class="card border-0">
             <div class="bubble">
               <a class="favorites-link" href="#">
                 <h2 class="title">Meet The Favorites</h2>
@@ -19,16 +19,18 @@
 
         <!--products-->
         <% @products.each do |p| %>
-          <!-- <a href=""> -->
+          <a href="">
             <div class="item-container card__row">
-              <div class="card">
+              <div class="card border-0">
                 <%= image_tag p.imageUrl, class:"product-img d-block", alt:"#{p.name} product image", draggable:"false" %>
-                  <div class="name"><%= p.name %></div>
-                  <div class="desc"><%= p.description %></div>
-                  <div class="star"><%= p.rating %></div>
+                  <div class="card-body">
+                    <div class="name text-center"><%= "#{p.name.upcase} | $#{p.price}" %></div>
+                    <div class="desc text-center"><%= p.description %></div>
+                    <div class="star"><%= p.rating %></div>
+                  </div>
             </div>
             </div>
-          <!-- </a> -->
+          </a>
         <% end %>
 
     </div>
