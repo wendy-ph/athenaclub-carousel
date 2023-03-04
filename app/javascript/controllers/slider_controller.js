@@ -2,7 +2,7 @@ import { tns } from 'tiny-slider/src/tiny-slider';
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ 'container', 'rating' ]
+  static targets = [ 'bubble', 'container', 'rating' ]
 
   connect() {
     this.initSlider()
@@ -10,21 +10,26 @@ export default class extends Controller {
     // console.log(this.ratingTargets);
     // console.log(this.ratingTarget.innerText);
     this.star();
+    this.hideBtn();
+
   }
 
-  star() {
-    const fullStar = "<i class=\"fa-solid fa-star\"></i>"
-    const emptyStar = "<i class=\"fa-regular fa-star\"></i>"
-    const halfStar = "<i class=\"fa-solid fa-star-half-stroke\"></i>"
+  hideBtn() {
+    if (this.bubbleTarget.getBoundingClientRect().x >= 0) {
+      document.getElementById('prev-btn').classList.add('d-none')
+    };
+    if (this.bubbleTarget.getBoundingClientRect().x < 0) {
+      document.getElementById('prev-btn').classList.remove('d-none')
+    };
 
-    this.ratingTargets.forEach((div) => {
-      let rating = parseFloat(div.innerText);
-      if (rating % 1 === 0) {
-        div.innerHTML = fullStar.repeat(rating) + emptyStar.repeat(5 - rating);
-      } else {
-        div.innerHTML = fullStar.repeat(rating) + halfStar.repeat(5 - Math.floor(rating));
-      }
-    })
+    if (document.getElementById('soft-face-wipes').getBoundingClientRect().x <= 1000) {
+      document.getElementById('next-btn').classList.add('d-none')
+    };
+
+    if (document.getElementById('soft-face-wipes').getBoundingClientRect().x > 1000) {
+      document.getElementById('next-btn').classList.remove('d-none')
+    };
+
   }
 
   initSlider() {
@@ -42,7 +47,8 @@ export default class extends Controller {
       responsive: {
         300: {
           items: 1,
-          startIndex: 1
+          startIndex: 1,
+          loop: true
         },
         770: {
           items: 2,
@@ -62,5 +68,20 @@ export default class extends Controller {
 
   prev() {
     this.slider.goTo('prev');
+  }
+
+  star() {
+    const fullStar = "<i class=\"fa-solid fa-star\"></i>"
+    const emptyStar = "<i class=\"fa-regular fa-star\"></i>"
+    const halfStar = "<i class=\"fa-solid fa-star-half-stroke\"></i>"
+
+    this.ratingTargets.forEach((div) => {
+      let rating = parseFloat(div.innerText);
+      if (rating % 1 === 0) {
+        div.innerHTML = fullStar.repeat(rating) + emptyStar.repeat(5 - rating);
+      } else {
+        div.innerHTML = fullStar.repeat(rating) + halfStar.repeat(5 - Math.floor(rating));
+      }
+    })
   }
 }

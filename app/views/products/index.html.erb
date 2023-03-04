@@ -4,9 +4,10 @@
 
   <div class="card__slider" data-controller="slider">
 
-    <div class="card__container" data-slider-target="container">
+    <div class="card__container" data-slider-target="container"
+                                 data-action="click->slider#hideBtn">
         <!--bubble-->
-        <div class="item-container card__row">
+        <div class="item-container card__row" data-slider-target="bubble">
           <div class="card border-0">
             <div class="bubble">
               <a class="favorites-link" href="#">
@@ -20,7 +21,8 @@
         <!--products-->
         <% @products.each do |p| %>
           <a href="">
-            <div class="item-container card__row">
+          <%=  %>
+            <div id="<%= p.name.downcase.split(" ").join('-')  %>" class="item-container card__row">
               <div class="card border-0">
                 <%= image_tag p.imageUrl, class:"product-img d-block", alt:"#{p.name} product image", draggable:"false" %>
                   <div class="card-body">
@@ -37,11 +39,11 @@
         <% end %>
 
     </div>
-    <button class="arrow" data-action="click->slider#prev">
-      <i class="fa-solid fa-angle-left"></i>
+    <button id="prev-btn" class="arrow" data-action="click->slider#prev">
+      <span class="slider-nav"></span>
     </button>
-    <button class="arrow" data-action="click->slider#next">
-      <i class="fa-solid fa-angle-right"></i>
+    <button id="next-btn" class="arrow" data-action="click->slider#next">
+      <span class="slider-nav"></span>
     </button>
   </div>
 
