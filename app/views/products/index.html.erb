@@ -26,7 +26,10 @@
                   <div class="card-body">
                     <div class="name text-center"><%= "#{p.name.upcase} | $#{p.price}" %></div>
                     <div class="desc text-center"><%= p.description %></div>
-                    <div class="star"><%= p.rating %></div>
+                    <div class="star text-center" data-slider-target="rating">
+
+                      <%= p.rating %>
+                    </div>
                   </div>
             </div>
             </div>
@@ -43,6 +46,3 @@
   </div>
 
 </div>
-
-
-<!-- -->

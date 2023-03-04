@@ -2,11 +2,29 @@ import { tns } from 'tiny-slider/src/tiny-slider';
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ 'container' ]
+  static targets = [ 'container', 'rating' ]
 
   connect() {
     this.initSlider()
     console.log("slider controller is connected");
+    // console.log(this.ratingTargets);
+    // console.log(this.ratingTarget.innerText);
+    this.star();
+  }
+
+  star() {
+    const fullStar = "<i class=\"fa-solid fa-star\"></i>"
+    const emptyStar = "<i class=\"fa-regular fa-star\"></i>"
+    const halfStar = "<i class=\"fa-solid fa-star-half-stroke\"></i>"
+
+    this.ratingTargets.forEach((div) => {
+      let rating = parseFloat(div.innerText);
+      if (rating % 1 === 0) {
+        div.innerHTML = fullStar.repeat(rating) + emptyStar.repeat(5 - rating);
+      } else {
+        div.innerHTML = fullStar.repeat(rating) + halfStar.repeat(5 - Math.floor(rating));
+      }
+    })
   }
 
   initSlider() {
