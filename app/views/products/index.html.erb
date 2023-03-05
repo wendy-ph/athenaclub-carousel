@@ -9,7 +9,7 @@
         <!--bubble-->
         <div class="item-container card__row" data-slider-target="bubble">
           <div class="card border-0">
-            <div class="bubble">
+            <div class="bubble card-img-top">
               <a class="favorites-link" href="#">
                 <h2 class="title">Meet The Favorites</h2>
                 <p class="link">SHOP ALL</p>
@@ -23,7 +23,7 @@
           <a href="">
           <%=  %>
             <div id="<%= p.name.downcase.split(" ").join('-')  %>" class="item-container card__row">
-              <div class="card border-0">
+              <div class="card border-0 inline-flex">
                 <%= image_tag p.imageUrl, class:"product-img d-block", alt:"#{p.name} product image", draggable:"false" %>
                   <div class="card-body">
                     <div class="name text-center"><%= "#{p.name.upcase} | $#{p.price}" %></div>
@@ -39,10 +39,10 @@
         <% end %>
 
     </div>
-    <button id="prev-btn" class="arrow" data-action="click->slider#prev">
+    <button id="prev-btn" class="arrow" data-action="click->slider#prev click->slider#hideBtn">
       <span class="slider-nav"></span>
     </button>
-    <button id="next-btn" class="arrow" data-action="click->slider#next">
+    <button id="next-btn" class="arrow" data-action="click->slider#next click->slider#hideBtn">
       <span class="slider-nav"></span>
     </button>
   </div>

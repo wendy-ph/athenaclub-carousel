@@ -38,7 +38,6 @@ export default class extends Controller {
       items: 3,
       slibeBy: 1,
       gutter: 0,
-      fixedWidth: 422,
       mouseDrag: true,
       arrowKeys: false,
       controls: false,
