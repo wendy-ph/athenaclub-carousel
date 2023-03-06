@@ -1,5 +1,6 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
+import { useMatchMedia } from "stimulus-use";
 
 export default class extends Controller {
   static targets = [ 'bubble', 'container', 'rating' ]
@@ -8,7 +9,7 @@ export default class extends Controller {
   }
 
   connect() {
-    this.initSlider();
+    // this.initSlider();
     console.log("slider controller is connected");
     // console.log(this.ratingTargets);
     // console.log(this.ratingTarget.innerText);
@@ -17,6 +18,30 @@ export default class extends Controller {
       this.hideBtn()
     }, this.refreshBtnValue)
 
+    useMatchMedia(this, {
+      mediaQueries: {
+        small: '(min-width: 320px) and (max-width: 768px)',
+        tall: '(min-height: 1000px)',
+        light: '(prefers-color-scheme: light)',
+        landscape: '(orientation: landscape)',
+      }
+    })
+
+  }
+
+  smallChanged({ name, media, matches, event }) {
+    this.initSliderMobile();
+    console.log("smal/lChanged media query changed")
+  }
+
+  isSmall({ name, media, matches, event }) {
+    this.initSliderMobile();
+    console.log("isSmall media query matches")
+  }
+
+  notSmall({ name, media, matches, event }) {
+    this.initSlider();
+    console.log("small media query doesn't match")
   }
 
   hideBtn() {
@@ -68,6 +93,35 @@ export default class extends Controller {
       viewportMax: true
     });
   }
+
+  initSliderMobile() {
+    this.slider = tns({
+      container: this.containerTarget,
+      items: 3,
+      slibeBy: 1,
+      gutter: 0,
+      mouseDrag: true,
+      arrowKeys: false,
+      controls: false,
+      nav: false,
+      loop: true,
+      responsive: {
+        300: {
+          items: 1,
+          startIndex: 1
+        },
+        770: {
+          items: 2,
+          startIndex: 0
+        },
+        995:{
+          items: 3
+        }
+      },
+      viewportMax: true
+    });
+  }
+
 
   next() {
     this.slider.goTo('next');
