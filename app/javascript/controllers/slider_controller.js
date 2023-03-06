@@ -9,62 +9,54 @@ export default class extends Controller {
   }
 
   connect() {
-    // this.initSlider();
     console.log("slider controller is connected");
-    // console.log(this.ratingTargets);
-    // console.log(this.ratingTarget.innerText);
+
     this.star();
+
     setInterval(() => {
       this.hideBtn()
-    }, this.refreshBtnValue)
+    }, this.refreshBtnValue);
 
     useMatchMedia(this, {
       mediaQueries: {
-        small: '(min-width: 320px) and (max-width: 768px)',
-        tall: '(min-height: 1000px)',
-        light: '(prefers-color-scheme: light)',
-        landscape: '(orientation: landscape)',
+        small: '(min-width: 320px) and (max-width: 768px)'
       }
-    })
-
+    });
   }
 
+  // tiny-slider with loop: true
   smallChanged({ name, media, matches, event }) {
     this.initSliderMobile();
-    console.log("smal/lChanged media query changed")
   }
 
   isSmall({ name, media, matches, event }) {
     this.initSliderMobile();
-    console.log("isSmall media query matches")
   }
 
+  // tiny-slider with loop:false
   notSmall({ name, media, matches, event }) {
     this.initSlider();
-    console.log("small media query doesn't match")
   }
 
   hideBtn() {
     // hide prev btn at start of slide
     if (this.bubbleTarget.classList.value.includes('tns-slide-active')) {
       document.getElementById('prev-btn').classList.add('d-none')
-    }
+    };
 
     if (!this.bubbleTarget.classList.value.includes('tns-slide-active')) {
       document.getElementById('prev-btn').classList.remove('d-none')
-    }
+    };
 
-    // hide next btn at start of slide
+    // hide next btn at end of slide
     if (document.getElementById('soft-face-wipes').classList.value.includes('tns-slide-active')) {
       document.getElementById('next-btn').classList.add('d-none')
-    }
+    };
 
     if (!document.getElementById('soft-face-wipes').classList.value.includes('tns-slide-active')) {
       document.getElementById('next-btn').classList.remove('d-none')
-    }
-
+    };
   }
-
 
   initSlider() {
     this.slider = tns({
@@ -131,6 +123,7 @@ export default class extends Controller {
     this.slider.goTo('prev');
   }
 
+  //convert rating into stars
   star() {
     const fullStar = "<i class=\"fa-solid fa-star\"></i>"
     const emptyStar = "<i class=\"fa-regular fa-star\"></i>"
@@ -141,8 +134,8 @@ export default class extends Controller {
       if (rating % 1 === 0) {
         div.innerHTML = fullStar.repeat(rating) + emptyStar.repeat(5 - rating);
       } else {
-        div.innerHTML = fullStar.repeat(rating) + halfStar.repeat(5 - Math.floor(rating));
+        div.innerHTML = fullStar.repeat(rating) + halfStar + emptyStar.repeat(5 - rating);
       }
-    })
+    });
   }
 }

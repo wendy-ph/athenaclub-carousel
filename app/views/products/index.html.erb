@@ -1,17 +1,15 @@
 <div class="container">
 
-
-
   <div class="card__slider" data-controller="slider">
 
     <div class="card__container" data-slider-target="container"
                                  data-action="click->slider#hideBtn"
                                  data-slider-refresh-btn-value="1000">
-        <!--bubble-->
+        <!-- bubble -->
         <div class="item-container card__row" data-slider-target="bubble">
           <div class="card border-0">
             <div class="bubble card-img-top">
-              <a class="favorites-link" href="#">
+              <a class="favorites-link" href="">
                 <h2 class="title">Meet The Favorites</h2>
                 <p class="link">SHOP ALL</p>
               </a>
@@ -19,7 +17,7 @@
           </div>
         </div>
 
-        <!--products-->
+        <!-- products -->
         <% @products.each do |p| %>
           <a href="" id="<%= p.name.downcase.split(" ").join('-')  %>">
           <%=  %>
@@ -30,7 +28,6 @@
                     <div class="name text-center"><%= "#{p.name.upcase} | $#{p.price}" %></div>
                     <div class="desc text-center"><%= p.description %></div>
                     <div class="star text-center" data-slider-target="rating">
-
                       <%= p.rating %>
                     </div>
                   </div>
@@ -38,13 +35,13 @@
             </div>
           </a>
         <% end %>
-
     </div>
+
     <button id="prev-btn" class="arrow" data-action="click->slider#prev click->slider#hideBtn">
-      <span class="slider-nav"></span>
+      <span class="slider-btn"></span>
     </button>
     <button id="next-btn" class="arrow" data-action="click->slider#next click->slider#hideBtn">
-      <span class="slider-nav"></span>
+      <span class="slider-btn"></span>
     </button>
   </div>
 
