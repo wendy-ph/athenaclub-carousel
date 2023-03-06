@@ -3,34 +3,43 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = [ 'bubble', 'container', 'rating' ]
+  static values = {
+    refreshBtn: Number
+  }
 
   connect() {
-    this.initSlider()
+    this.initSlider();
     console.log("slider controller is connected");
     // console.log(this.ratingTargets);
     // console.log(this.ratingTarget.innerText);
     this.star();
-    this.hideBtn();
+    setInterval(() => {
+      this.hideBtn()
+    }, this.refreshBtnValue)
 
   }
 
   hideBtn() {
-    if (this.bubbleTarget.getBoundingClientRect().x >= 0) {
+    // hide prev btn at start of slide
+    if (this.bubbleTarget.classList.value.includes('tns-slide-active')) {
       document.getElementById('prev-btn').classList.add('d-none')
-    };
-    if (this.bubbleTarget.getBoundingClientRect().x < 0) {
+    }
+
+    if (!this.bubbleTarget.classList.value.includes('tns-slide-active')) {
       document.getElementById('prev-btn').classList.remove('d-none')
-    };
+    }
 
-    if (document.getElementById('soft-face-wipes').getBoundingClientRect().x <= 1000) {
+    // hide next btn at start of slide
+    if (document.getElementById('soft-face-wipes').classList.value.includes('tns-slide-active')) {
       document.getElementById('next-btn').classList.add('d-none')
-    };
+    }
 
-    if (document.getElementById('soft-face-wipes').getBoundingClientRect().x > 1000) {
+    if (!document.getElementById('soft-face-wipes').classList.value.includes('tns-slide-active')) {
       document.getElementById('next-btn').classList.remove('d-none')
-    };
+    }
 
   }
+
 
   initSlider() {
     this.slider = tns({
@@ -46,8 +55,7 @@ export default class extends Controller {
       responsive: {
         300: {
           items: 1,
-          startIndex: 1,
-          loop: true
+          startIndex: 1
         },
         770: {
           items: 2,

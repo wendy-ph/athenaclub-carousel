@@ -5,7 +5,8 @@
   <div class="card__slider" data-controller="slider">
 
     <div class="card__container" data-slider-target="container"
-                                 data-action="click->slider#hideBtn">
+                                 data-action="click->slider#hideBtn"
+                                 data-slider-refresh-btn-value="1000">
         <!--bubble-->
         <div class="item-container card__row" data-slider-target="bubble">
           <div class="card border-0">
@@ -20,10 +21,10 @@
 
         <!--products-->
         <% @products.each do |p| %>
-          <a href="">
+          <a href="" id="<%= p.name.downcase.split(" ").join('-')  %>">
           <%=  %>
-            <div id="<%= p.name.downcase.split(" ").join('-')  %>" class="item-container card__row">
-              <div class="card border-0 inline-flex">
+            <div class="item-container card__row" data-action="click->slider#hideBtn">
+              <div class="card border-0">
                 <%= image_tag p.imageUrl, class:"product-img d-block", alt:"#{p.name} product image", draggable:"false" %>
                   <div class="card-body">
                     <div class="name text-center"><%= "#{p.name.upcase} | $#{p.price}" %></div>
