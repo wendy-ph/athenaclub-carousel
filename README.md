@@ -4,7 +4,7 @@
 
 [Demo](https://ac-challenge.onrender.com/)
 
-Recreated the carousel(slider) product that can be found on [https://www.athenaclub.com/](https://www.athenaclub.com/) using Ruby on Rails full-stack framework.
+This project aims to recreate the carousel(slider) product that can be found on [https://www.athenaclub.com/](https://www.athenaclub.com/) using Ruby on Rails full-stack framework.
 
 ## Technologies
 
@@ -163,23 +163,24 @@ echo "sudo /etc/init.d/postgresql start" >> ~/.zshrc
 
 ### Clone repository & getting started
 
-In your terminal, run the following command to clone the GitHub repository:
+To clone the GitHub repository, run the following command in your terminal:
 
 ```
 git clone git@github.com:wendy-ph/athenaclub-challenge.git
 ```
 
-Navigate into the folder on your local machine that has the cloned repository
+Navigate to the cloned repository in your local machine:
 ```
 cd athenaclub-challenge
 ```
-Run the following commands to install the app's dependencies and create the database:
+
+To install the app's dependencies and create the database, run the following commands:
 ```
 bundle install
 yarn install
 rails db:create db:migrate db:seed
 ```
-After running the last command line, you should see the following in your terminal:
+After running the last command, you should see the following output in your terminal:
 
 ![Screenshot of terminal](app/assets/images/dbseed.png)
 
