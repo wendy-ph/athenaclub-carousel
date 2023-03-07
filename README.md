@@ -179,7 +179,7 @@ bundle install
 yarn install
 rails db:create db:migrate db:seed
 ```
-After running ```db:seed``` you should see the following in your terminal:
+After running the last command line, you should see the following in your terminal:
 
 ![Screenshot of terminal](app/assets/images/dbseed.png)
 
