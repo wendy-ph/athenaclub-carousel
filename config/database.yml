@@ -81,7 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: athenaclub_challenge_production
   url: <%= ENV['DATABASE_URL'] %>
+  database: athenaclub_challenge_production
   username: athenaclub_challenge
   password: <%= ENV["ATHENACLUB_CHALLENGE_DATABASE_PASSWORD"] %>

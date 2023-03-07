@@ -1,6 +1,6 @@
 databases:
   - name: ac-challenge
-    databaseName: acproducts
+    databaseName: athenaclub_challenge
     user: mysite
 
 services:
