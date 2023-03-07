@@ -173,7 +173,7 @@ Navigate into the folder on your local machine that has the cloned repository
 ```
 cd athenaclub-challenge
 ```
-Run the following commands to install the app's depenndencies and create the database:
+Run the following commands to install the app's dependencies and create the database:
 ```
 bundle install
 yarn install
@@ -203,7 +203,7 @@ The HTML markup for the carousel can be found in ```app/views/products/index.htm
 
 #### Javascript
 
-* The Javascript codes to initialize ```tiny-slider``` for the carousel can be found in ```app/javascript/controllers/slider_controller.rb```.
+* The Javascript code to initialize ```tiny-slider``` for the carousel can be found in ```app/javascript/controllers/slider_controller.rb```.
 * You will also find the function ```star()``` to convert ```product.rating``` into star ratings.
 * ```hideBtn()``` is used to hide the slider navigation btn at start and end of slider when not in mobile view.
 * ```useMatchMedia()```, ```smallChanged()```, ```isSmall()``` and ```notSmall()``` are functions from ```stimulus-use``` package that are used to call ```tiny-slider```
