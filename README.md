@@ -14,7 +14,7 @@ Recreated the carousel(slider) product that can be found on [https://www.athenac
 * Rails 7.0.4
 * Ruby 3.1.2
 * Stimulus-use 0.52 for responsiveness for the slider
-* tiny-slider 2.9.4
+* Tiny-slider 2.9.4
 
 ## Installation
 
@@ -206,7 +206,7 @@ The HTML file for the carousel can be found in ```app/views/products/index.html.
 * The Javascript code to initialize ```tiny-slider``` for the carousel can be found in ```app/javascript/controllers/slider_controller.rb```.
 * You will also find the function ```star()``` to convert ```product.rating``` into star ratings.
 * ```hideBtn()``` is used to hide the slider navigation btn at start and end of slider when not in mobile view.
-* ```useMatchMedia()```, ```smallChanged()```, ```isSmall()``` and ```notSmall()``` are functions from ```stimulus-use``` package that are used to call ```tiny-slider```
+* ```useMatchMedia()```, ```smallChanged()```, ```isSmall()``` and ```notSmall()``` are functions from ```stimulus-use``` package that are used to make the carousel more responsive in regards to ```loop``` being ```true``` or ```false```.
 
 #### Stylesheet
 
