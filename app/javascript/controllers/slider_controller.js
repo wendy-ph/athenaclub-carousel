@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 import { useMatchMedia } from "stimulus-use";
 
 export default class extends Controller {
-  static targets = [ 'bubble', 'container', 'rating' ]
+  static targets = [ 'bubble', 'container', 'rating', 'prevBtn', 'nextBtn' ]
   static values = {
     refreshBtn: Number
   }
@@ -13,10 +13,6 @@ export default class extends Controller {
 
     this.star();
 
-    setInterval(() => {
-      this.hideBtn()
-    }, this.refreshBtnValue);
-
     useMatchMedia(this, {
       mediaQueries: {
         small: '(min-width: 320px) and (max-width: 768px)'
@@ -25,36 +21,42 @@ export default class extends Controller {
   }
 
   // tiny-slider with loop: true
-  smallChanged({ name, media, matches, event }) {
+  smallChanged() {
     this.initSliderMobile();
+    (console.log('mobile slider is connected'))
   }
 
-  isSmall({ name, media, matches, event }) {
+  isSmall() {
     this.initSliderMobile();
+    (console.log('mobile slider is connected'))
   }
 
   // tiny-slider with loop:false
   notSmall({ name, media, matches, event }) {
     this.initSlider();
+    setInterval(() => {
+      this.hideBtn()
+    }, this.refreshBtnValue);
+    (console.log('desktop slider is connected'))
   }
 
   hideBtn() {
     // hide prev btn at start of slide
     if (this.bubbleTarget.classList.value.includes('tns-slide-active')) {
-      document.getElementById('prev-btn').classList.add('d-none')
+      this.prevBtnTarget.classList.add('d-none')
     };
 
     if (!this.bubbleTarget.classList.value.includes('tns-slide-active')) {
-      document.getElementById('prev-btn').classList.remove('d-none')
+      this.prevBtnTarget.classList.remove('d-none')
     };
 
     // hide next btn at end of slide
     if (document.getElementById('soft-face-wipes').classList.value.includes('tns-slide-active')) {
-      document.getElementById('next-btn').classList.add('d-none')
+      this.nextBtnTarget.classList.add('d-none')
     };
 
     if (!document.getElementById('soft-face-wipes').classList.value.includes('tns-slide-active')) {
-      document.getElementById('next-btn').classList.remove('d-none')
+      this.nextBtnTarget.classList.remove('d-none')
     };
   }
 
