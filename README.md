@@ -2,7 +2,7 @@
 
 ## Description
 
-[Demo](targetURL)
+[Demo](https://ac-challenge.onrender.com/)
 
 Recreated the carousel(slider) product that can be found on [https://www.athenaclub.com/](https://www.athenaclub.com/) using Ruby on Rails full-stack framework.
 
@@ -185,7 +185,7 @@ After running the last command line, you should see the following in your termin
 
 You are now ready to explore the app!
 To view it locally, run ```rails s``` in your terminal and open your web browser to http://localhost:3000/.
-Alternatively, you can view it live [here].
+Alternatively, you can view it live [here](https://ac-challenge.onrender.com/).
 
 ## Getting around the app
 
@@ -215,3 +215,17 @@ Styling for bubble element can be found in ```app/assets/stylesheets/components/
 Styling for the carousel(slider) can be found in ```app/assets/stylesheets/components/_slider.scss```
 
 Custom font can be found in ```app/assets/stylesheets/config/_fonts.scss```
+
+### Bugs
+
+When opening the site on desktop view, and resizing the screen to a smaller view, everything works as it should. However,
+
+* when opening the site from a smaller view (< 768px) and resizing the window to a larger view, the slider ```loop``` setting does not change from ```true``` to ```false``` (if page is refreshed, the correct ```loop: true/false``` will display).
+
+* after the page is refreshed, the left navigation button will flash/flicker (most likely due to the following code in ```app/javascript/controllers/slider_controller.rb```:
+```
+setInterval(() => {
+  this.hideBtn()
+}, this.refreshBtnValue);
+```
+)
