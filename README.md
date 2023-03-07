@@ -199,7 +199,7 @@ To access the ```products``` from the front-end, I created an instance variable 
 
 #### HTML
 
-The HTML markup for the carousel can be found in ```app/views/products/index.html.erb```
+The HTML file for the carousel can be found in ```app/views/products/index.html.erb```
 
 #### Javascript
 
