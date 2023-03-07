@@ -194,7 +194,9 @@ Alternatively, you can view it live [here](https://ac-challenge.onrender.com/).
 
 The ```products.json``` file is stored in ```athenaclub-challenge/db```. The products were added to the database via ```db/seeds.rb```.
 
-To access the ```products``` from the front-end, I created an instance variable ```@products``` in ```app/controllers/products_controller.rb```
+To access the ```products``` from the front-end, I created
+* the route ```get 'index', to: 'products#index``` in file ```config/routes.rb```
+* an instance variable ```@products``` in ```app/controllers/products_controller.rb```
 
 ### Frontend
 
